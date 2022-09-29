@@ -1,0 +1,73 @@
+Database for IMT Segmentation: Common Carotid Artery (CCA) ultrasound images for the intima-media thickness 
+(IMT) measurements
+
+Download:
+We are making the IMT Segmentation Database available to the research community free of charge. 
+If you use this database in your research, we kindly ask that you reference our papers listed below:
+
+• C.P. Loizou, C.S. Pattichis, A. Nicolaides, M. Pantziaris, “Manual and automated media and intima thickness 
+measurements of the common carotid artery,” IEEE Trans. Ultras. Ferroel. Freq. Contr., vol. 56, no. 5, 
+pp. 983-994, May 2009. 
+• C.P. Loizou, C.S. Pattichis, M. Pantziaris, T. Tyllis, A. Nicolaides, “Snakes based segmentation of the 
+common carotid artery intima media,” Med. Biol. Eng. Comput.,” vol. 45, no. 1, pp. 35-49, Jan. 2007.  
+• C.P. Loizou, C.S. Pattichis, “Despeckle filtering algorithms and Software for Ultrasound Imaging,” 
+Synthesis Lectures on Algorithms and Software for Engineering, Ed. Morgan & Claypool Publishers, 
+1537 Fourth Street, Suite 228, San Rafael, CA 94901 USA, June 2008, ISBN-13: 9781598296204.
+• C.P. Loizou, M. Pantziaris, M.S. Pattichis, E. Kyriakou, C.S. Pattichis, “Ultrasound image texture analysis of 
+the intima and media layers of the common carotid artery and its correlation with age and gender,” 
+Comput. Med. Imag. Graph., vol. 33, no.4, pp. 317-324, 2009. 
+• C.P. Loizou, V. Murray, M.S. Pattichis, M. Pantziaris, C.S. Pattichis, “Multiscale amplitude 
+modulation-frequency modulation (AM-FM) texture analysis of ultrasound images of the intima and media 
+layers of the carotid artery,” 
+IEEE Trans. Inf. Tech. Biomed., vol. 15, no. 2, pp. 178-188, 2011. 
+• S. Petroudi, C.P. Loizou, M. Pantziaris, C.S. Pattichis, “Segmentation of the common carotid 
+intima-media complex in ultrasound images using active contours,”
+ IEEE Trans. Biomed. Eng., vol. 59, no. 11, pp. 3060-3069, 2012.
+
+
+Further download information for the database may be obtained by contacting Christos Loizou (panloicy@logosnet.cy.net).
+Pre-prints of the papers are also available upon request, or can be downlaoded for personal use from the
+website of the Laboratory of eHealth of the University of Cyprus, at:
+http://www.medinfo.cs.ucy.ac.cy/
+
+Database Description:
+In the IMT-Segmentation folder there are 100 folders representing data for each patient (100 patients).
+In each patient folder we have the follwing:
+1) Manual Segmentation folder: Contains initial manual delineation by the doctor. All info are included in the*.scl files. The delineation/s can 
+be loaded into matlab i.e load(file.scl, '-.mat'); Then points can be drawn on the image as follows:
+
+An examble how to load an image and display the deliniations (Run the following in Matlab):
+
+a=imread('AAAAA.cri'); load ('AAAAA.scl', '-mat');
+figure, imshow(a);
+x_int=Param_3(1:2:end-1);
+y_int=Param_4(1:2:end-1);
+line(x_int,y_int,'LineWidth',1,'Color',[1 1 0],'Marker','x','MarkerEdgeColor',[1 0 0]);
+intima=[ x_int, y_int];
+x_med=Param_3(2:2:end);
+y_med=Param_4(2:2:end);
+media=[x_med, y_med];
+
+line(x_med,y_med,'LineWidth',1,'Color',[1 1 0],'Marker','x','MarkerEdgeColor',[1 0 0]);
+snpoints=[intima', fliplr(media')];
+Copyright Notice
+-----------COPYRIGHT NOTICE STARTS WITH THIS LINE------------
+Copyright (c) 2012 University of Cyprus, Cyprus
+All rights reserved.
+
+Permission is hereby granted, without written agreement and without license or royalty fees,
+to use, copy, modify, and distribute this database and its documentation for any purpose,
+provided that the copyright notice in its entirety appear in all copies of this database,
+and the original source of this database, the Laboratory of eHealth at the University
+of Cyprus (http://www.medinfo.cs.ucy.ac.cy/) is acknowledged in any publication that
+reports research using this database.
+
+IN NO EVENT SHALL THE UNIVERSITY OF CYPRUS BE LIABLE TO ANY PARTY FOR DIRECT, INDIRECT,
+SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE OF THIS DATABASE AND ITS DOCUMENTATION,
+EVEN IF THE UNIVERSITY OF CYPRUS HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+THE UNIVERSITY OF CYPRUS SPECIFICALLY DISCLAIMS ANY WARRANTIES, INCLUDING, 
+BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+THE DATABASE PROVIDED HEREUNDER IS ON AN "AS IS" BASIS, AND THE UNIVERSITY OF CYPRUS 
+HAS NO OBLIGATION TO PROVIDE MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
+-----------COPYRIGHT NOTICE ENDS WITH THIS LINE------------
